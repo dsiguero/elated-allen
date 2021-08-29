@@ -1,22 +1,21 @@
 variable "project" {
   type        = string
-  description = "The name of the Project we are bootstrapping tfscaffold for"
+  description = "The name of the Project"
 }
 
 variable "aws_account_id" {
   type        = string
-  description = "The AWS Account ID into which we are bootstrapping tfscaffold"
+  description = "The AWS Account ID"
 }
 
 variable "region" {
   type        = string
-  description = "The AWS Region into which we are bootstrapping tfscaffold"
+  description = "The AWS Region"
 }
 
 variable "environment" {
   type        = string
-  description = "The name of the environment for the bootstrapping process; which is always bootstrap"
-  default     = "bootstrap"
+  description = "The name of the environment"
 }
 
 variable "default_tags" {
