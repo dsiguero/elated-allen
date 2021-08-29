@@ -7,13 +7,13 @@ data "archive_file" "lambda_placeholder" {
 
 resource "aws_lambda_function" "lambda" {
   description                    = "Retrieves a CSV file from S3 and stores it."
-  function_name = (format(
+  function_name = format(
     "%s-%s-%s-%s",
     var.project,
     var.environment,
     local.component,
     "csv-writer"
-  ))
+  )
 
   filename                       = "${path.root}/placeholder.zip"
   handler                        = "index.handler"
@@ -22,9 +22,11 @@ resource "aws_lambda_function" "lambda" {
   runtime                        = "nodejs14.x"
   timeout                        = 30
 
-  # environment {
-  #   variables = var.environment_variables
-  # }
+  environment {
+    variables = {
+      DYNAMODB_TABLE_DESTINATION = aws_dynamodb_table.csv_content.name
+    }
+  }
 
   tags = {
     "Name" = "csv-writer"

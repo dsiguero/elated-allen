@@ -1,11 +1,11 @@
 resource "aws_s3_bucket" "sinkhole" {
-  bucket = (format(
+  bucket = format(
     "%s-%s-%s-%s",
     var.project,
     var.environment,
     local.component,
     "csv-sinkhole"
-  ))
+  )
   acl = "private"
 
   force_destroy = false
