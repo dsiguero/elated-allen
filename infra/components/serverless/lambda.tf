@@ -6,7 +6,7 @@ data "archive_file" "lambda_placeholder" {
 }
 
 resource "aws_lambda_function" "lambda" {
-  description                    = "Retrieves a CSV file from S3 and stores it."
+  description = "Retrieves a CSV file from S3 and stores it."
   function_name = format(
     "%s-%s-%s-%s",
     var.project,
@@ -15,12 +15,12 @@ resource "aws_lambda_function" "lambda" {
     "csv-writer"
   )
 
-  filename                       = "${path.root}/placeholder.zip"
-  handler                        = "index.handler"
-  memory_size                    = 128
-  role                           = aws_iam_role.iam_for_lambda.arn
-  runtime                        = "nodejs14.x"
-  timeout                        = 30
+  filename    = "${path.root}/placeholder.zip"
+  handler     = "index.handler"
+  memory_size = 128
+  role        = aws_iam_role.iam_for_lambda.arn
+  runtime     = "nodejs14.x"
+  timeout     = 30
 
   environment {
     variables = {

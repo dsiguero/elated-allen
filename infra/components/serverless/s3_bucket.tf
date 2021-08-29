@@ -68,12 +68,12 @@ data "aws_iam_policy_document" "bucket_policydoc" {
     ]
 
     principals {
-      type = "AWS"
+      type        = "AWS"
       identifiers = ["*"]
     }
 
     condition {
-      test = "Bool"
+      test     = "Bool"
       variable = "aws:SecureTransport"
 
       values = ["false"]

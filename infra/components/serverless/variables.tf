@@ -20,7 +20,7 @@ variable "environment" {
 }
 
 variable "default_tags" {
-  type        = map
+  type        = map(any)
   description = "Default tag map for application to all taggable resources in the module"
 }
 
