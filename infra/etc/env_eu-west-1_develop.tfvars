@@ -16,3 +16,7 @@ private_subnet_c = "10.0.3.0/24"
 public_subnet_a = "10.0.101.0/24"
 public_subnet_b = "10.0.102.0/24"
 public_subnet_c = "10.0.103.0/24"
+
+
+image_suffix = "image-registry"
+image_version = "1.0.4"

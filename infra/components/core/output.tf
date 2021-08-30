@@ -25,3 +25,15 @@ output "public_subnets_cidr_blocks" {
 output "image_repository_url" {
   value = aws_ecr_repository.image_registry.repository_url
 }
+
+output "ecs_cluster_arn" {
+  value = aws_ecs_cluster.cluster.arn
+}
+
+output "vpc_endpoints_sg_id" {
+  value = aws_security_group.vpc_endpoint_sg.id
+}
+
+output "s3_vpce_prefix_list_id" {
+  value = module.vpc_endpoints.endpoints.s3.prefix_list_id
+}
